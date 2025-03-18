@@ -12,11 +12,18 @@ export const counterSlice = createSlice({
       // which detects changes to a "draft state" and produces a brand new
       // immutable state based off those changes
       state.counter += 1;
+    },
+    decrement: (state) => {
+      state.counter -= 1;
+    },
+    incrementBy: (state, action) => {
+      console.log(action); 
+      state.counter += action.payload; // puede ser un objeto o un unico valor
     }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { increment } = counterSlice.actions
+export const { increment, decrement, incrementBy } = counterSlice.actions
 
 // export default counterSlice.reducer
